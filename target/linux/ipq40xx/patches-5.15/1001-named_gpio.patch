@@ -1,0 +1,34 @@
+From 5b74948dfe64180513e8f6acc45e6154c3ca5649 Mon Sep 17 00:00:00 2001
+From: "ilan.ganor" <ilan@kamacode.com>
+Date: Sun, 21 Jan 2024 16:46:11 +0200
+Subject: [PATCH 1/2] named_gpio
+
+---
+ arch/arm/boot/dts/qcom-ipq4019-habanero-dvk.dts | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/arch/arm/boot/dts/qcom-ipq4019-habanero-dvk.dts b/arch/arm/boot/dts/qcom-ipq4019-habanero-dvk.dts
+index 23a654dcf..2e2414757 100644
+--- a/arch/arm/boot/dts/qcom-ipq4019-habanero-dvk.dts
++++ b/arch/arm/boot/dts/qcom-ipq4019-habanero-dvk.dts
+@@ -19,6 +19,17 @@
+ 	};
+ 
+ 	soc {
++
++	        personal_station-pm {
++	                compatible = "personal,personal_station-pm";
++	                platform-unique;
++	                status = "okay";
++			pin_numbers = <10 11 18>;
++			pin_names = 	"WP76XX_TP1", "WP76XX_PWR_OFF", "KSZ_RESET";
++			//GPIOF_OUT_INIT_LOW  GPIOF_OUT_INIT_HIGH GPIOF_IN
++			pin_states = <0 0 0>;
++			pin_init_val = <0 0 0>;
++	        };
+ 		rng@22000 {
+ 			status = "okay";
+ 		};
+-- 
+2.17.1
+
