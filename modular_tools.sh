@@ -17,6 +17,10 @@ setup()
 build()
 {
 	echo "build now"
+	./scripts/feeds update -a
+	./scripts/feeds install -a
+	make defconfig
+	make -j$(nproc) IGNORE_ERRORS='m n y'
 }
 
 view_build_details()
