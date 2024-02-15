@@ -509,3 +509,4 @@ CONFIG_ZSTD_COMPRESS=y
 CONFIG_ZSTD_DECOMPRESS=y
 CONFIG_PACKAGE_kmod-usb-serial=y
 CONFIG_PACKAGE_kmod-usb-serial-sierrawireless=y
+CONFIG_DEVMEM=y
