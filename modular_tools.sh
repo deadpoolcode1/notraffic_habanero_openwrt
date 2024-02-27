@@ -4,9 +4,10 @@
 
 help()
 {
-	echo "build	- 	huild image"
-	echo "setup 	- 	one time build machine setup"
-	echo "help 	-	help menu"
+	echo "build	 - 	huild image"
+	echo "setup 	 - 	one time build machine setup"
+	echo "copy_image -      copy image to /tmp/"
+	echo "help 	 -	help menu"
 }
 
 setup()
@@ -23,10 +24,9 @@ build()
 	make -j$(nproc) IGNORE_ERRORS='m n y'
 }
 
-view_build_details()
+copy_image()
 {
-	echo "show image details"
-	leaf profile -v
+	cp bin/targets/ipq40xx/generic/openwrt-ipq40xx-generic-8dev_habanero-dvk-squashfs-sysupgrade.bin /tmp/
 }
 
 if [ -n "$*" ]; then
