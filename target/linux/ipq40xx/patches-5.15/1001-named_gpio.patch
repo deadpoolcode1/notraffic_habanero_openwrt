@@ -20,7 +20,7 @@ index 23a654dcf..2e2414757 100644
 +	                compatible = "personal,personal_station-pm";
 +	                platform-unique;
 +	                status = "okay";
-+			pin_numbers = <10 11 18>;
++			pin_numbers = <422 423 430>;
 +			pin_names = 	"WP76XX_TP1", "WP76XX_PWR_OFF", "KSZ_RESET";
 +			//GPIOF_OUT_INIT_LOW  GPIOF_OUT_INIT_HIGH GPIOF_IN
 +			pin_states = <0 0 0>;
