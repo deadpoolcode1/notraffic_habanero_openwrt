@@ -1,0 +1,92 @@
+#!/bin/sh /etc/rc.common
+START=99
+STOP=10
+#GPIOBASE=412
+#IOMEMBASE=0x1000000
+GPIONUM=0
+IOMEM=0
+
+rgmii_pin_set ()
+{
+	cd /sys/class/gpio
+	echo  $GPIONUM > export
+	cd gpio$GPIONUM
+	echo out > direction
+	/sbin/devmem $IOMEM 32 0x4906
+	echo 1 > value
+}
+
+set_registers()
+{
+	#
+	#GPIO22		RGMII_RXD(0)
+	GPIONUM=434
+	IOMEM=0x1017000
+	rgmii_pin_set
+	#
+	#GPIO23		RGMII_RXD(1)
+	GPIONUM=435
+	IOMEM=0x1018000
+	rgmii_pin_set
+	#
+	#GPIO24		RGMII_RXD(2)
+	GPIONUM=436
+	IOMEM=0x1019000
+	rgmii_pin_set
+	#
+	#GPIO25		RGMII_RXD(3)
+	GPIONUM=437
+	IOMEM=0x101A000
+	rgmii_pin_set
+	#
+	#GPIO26          RGMII_RX_CTL
+	GPIONUM=438
+	IOMEM=0x101B000
+	rgmii_pin_set
+	#
+	#GPIO27          RGMII_TXC
+	GPIONUM=439
+	IOMEM=0x101C000
+	rgmii_pin_set
+	#
+	#GPIO28          RGMII_TXD(0)
+	GPIONUM=440
+	IOMEM=0x101D000
+	rgmii_pin_set
+	#
+	#GPIO29          RGMII_TXD(1)
+	GPIONUM=441
+	IOMEM=0x101E000
+	rgmii_pin_set
+	#
+	#GPIO30		RGMII_TXD(2)
+	GPIONUM=442
+	IOMEM=0x101F000
+	rgmii_pin_set
+	#
+	#GPIO31		RGMII_TXD(3)
+	GPIONUM=443
+	IOMEM=0x1020000
+	rgmii_pin_set
+	#
+	#GPIO32		RGMII_RXC
+	GPIONUM=444
+	IOMEM=0x1021000
+	rgmii_pin_set
+	#
+	#GPIO33		RGMII_TX_CTL
+	GPIONUM=445
+	IOMEM=0x1022000
+	rgmii_pin_set
+	#
+}
+
+start() {
+    set_registers()
+    echo "Custom startup actions completed"
+    echo "Custom startup actions completed" > /dev/kmsg
+}
+
+stop() {
+    # Your shutdown commands go here
+}

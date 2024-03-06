@@ -1,0 +1,12 @@
+diff --git a/arch/arm/boot/dts/qcom-ipq4019-habanero-dvk.dts b/arch/arm/boot/dts/qcom-ipq4019-habanero-dvk.dts
+index 3df02f8..43b3f2f 100644
+--- a/arch/arm/boot/dts/qcom-ipq4019-habanero-dvk.dts
++++ b/arch/arm/boot/dts/qcom-ipq4019-habanero-dvk.dts
+@@ -281,7 +281,6 @@
+ 			partition@e0000 {
+ 				label = "APPSBLENV"; /* uboot env */
+ 				reg = <0x000e0000 0x00010000>;
+-				read-only;
+ 			};
+ 			partition@f0000 {
+ 				label = "APPSBL"; /* uboot */
