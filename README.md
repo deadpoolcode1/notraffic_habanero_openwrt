@@ -10,14 +10,13 @@ scp ilan@10.100.102.22:/tmp/openwrt-ipq40xx-generic-8dev_habanero-dvk-squashfs-s
 
 sysupgrade -F -v -c /tmp/openwrt-ipq40xx-generic-8dev_habanero-dvk-squashfs-sysupgrade.bin
 
-#SET BOOTLOADER PASSWORD
+#SET BOOTLOADER STOP ENABLE
 
-stop on uboot
+fw_setenv bootdelay 1
 
-setenv autostop <mypassword>
+#SET BOOTLOADER STOP DISABLE
 
-saveenv
+fw_setenv bootdelay 0
 
-reset
-
-
+#HOW TO FLASH BOOTLOADER
+https://wiki.8devices.com/habanero:uboot
